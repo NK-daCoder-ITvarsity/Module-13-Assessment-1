@@ -1,9 +1,17 @@
+import React, { useState } from 'react'
+import Navigation from './components/Navigation'
+
 const App = () => {
+  const [selectedSection, setSelectedSection] = useState("Todo List");
+  
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <div className='flex'>
+      <Navigation
+        updatedSection={selectedSection}
+        setUpdatedSection={setSelectedSection}
+      />
+    </div>
   )
 }
 
-export default App;
+export default App
