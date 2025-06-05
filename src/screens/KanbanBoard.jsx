@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import Column from "../components/KanBanColumn";
 
@@ -8,9 +8,19 @@ const initialData = {
   done: { id: "done", title: "Done", cards: [] },
 };
 
+const LOCAL_STORAGE_KEY = "kanban-board-data";
+
 const KanbanBoard = () => {
-  const [columns, setColumns] = useState(initialData);
+  const [columns, setColumns] = useState(() => {
+    const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
+    return saved ? JSON.parse(saved) : initialData;
+  });
+
   const [dragged, setDragged] = useState(null);
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(columns));
+  }, [columns]);
 
   const handleAdd = (columnId, text) => {
     const newCard = { id: uuidv4(), text };
@@ -71,7 +81,7 @@ const KanbanBoard = () => {
   };
 
   return (
-    <div className="flex gap-4 p-4">
+    <div className="flex gap-4 overflow-x-auto pb-4">
       {Object.entries(columns).map(([columnId, column]) => (
         <Column
           key={columnId}

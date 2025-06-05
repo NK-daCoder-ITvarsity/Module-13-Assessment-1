@@ -4,8 +4,8 @@ import { softwarePaths } from '../constants/const.js'
 const Navigation = ({updatedSection, setUpdatedSection}) => {
     
     return (
-        <header className=" relative w-[15%]">
-            <nav className='flex flex-col justify-between h-screen py-6 sticky top-5 border'>
+        <header className=" relative w-[13.7%]">
+            <nav className='flex flex-col justify-between h-screen py-6 fixed top-0 left-0 border'>
                 <section>
                     <a href="#" className="flex flex-col items-center justify-center">
                         <img src="/taskmate.png" alt="" className="size-12 "/>
