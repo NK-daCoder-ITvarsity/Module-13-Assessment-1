@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { KanbanCard } from "./KanBanCard";
+import { KanbanCard } from "./KanbanCard";
 
 
 const themeVariables = {
