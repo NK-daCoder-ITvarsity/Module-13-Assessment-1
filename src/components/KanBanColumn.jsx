@@ -2,7 +2,15 @@
 import { useState } from "react";
 import KanBanCard from "./kanBanCard";
 
-const Column = ({ column, onAdd, onDelete, onUpdate, onDragStart, onDrop }) => {
+const themeVariables = {
+  orange: "bg-gradient-to-b from-orange-500 to-red-500",
+  blue: "bg-gradient-to-b from-blue-500 to-sky-800",
+  pink: "bg-gradient-to-b from-pink-500 to-pink-800",
+  green: "bg-gradient-to-b from-green-500 to-green-800",
+  black: "bg-gradient-to-b from-stone-500 to-stone-800"
+};
+
+const Column = ({ column, onAdd, onDelete, onUpdate, onDragStart, onDrop, theme }) => {
   const [input, setInput] = useState("");
 
   const handleDrop = (e) => {
@@ -27,6 +35,7 @@ const Column = ({ column, onAdd, onDelete, onUpdate, onDragStart, onDrop }) => {
             onDelete={onDelete}
             onUpdate={onUpdate}
             onDragStart={onDragStart}
+            theme={theme}
           />
         ))}
       </div>
@@ -43,7 +52,7 @@ const Column = ({ column, onAdd, onDelete, onUpdate, onDragStart, onDrop }) => {
             onAdd(column.id, input);
             setInput("");
           }}
-          className="bg-blue-500 text-white px-3 py-1 rounded"
+          className={`text-white px-3 py-1 rounded ${theme === "black" ? themeVariables.black : theme === "orange" ? themeVariables.orange : theme === "blue" ? themeVariables.blue : theme === "green" ? themeVariables.green : theme === "pink" ? themeVariables.pink : ""}`}
         >
           +
         </button>

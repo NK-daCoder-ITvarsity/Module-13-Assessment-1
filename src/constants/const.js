@@ -1,40 +1,31 @@
 import { contactTeamIcon, helpCenterIcon, kanBanBoardIcon, settingsIcons, taskCalanderIcon, toDoIcon } from "./media.js";
 
-const themes = ["blue", "orange", "green", "pink"];
-const softwarePaths = {
+export const themes = ["blue", "orange", "green", "pink", "black"];
+export const dashboardThemes = ["white", "black"];
+export const dashboardMosiacThemes = []
+
+export const SECTIONS = {
+    TODO: 'TODO',
+    KANBAN: 'KANBAN',
+    CALENDAR: 'CALENDAR',
+    MEETUP: 'MEETUP',
+    SETTINGS: 'SETTINGS',
+    HELP: 'HELP',
+};
+
+export const SUB_SECTIONS = {
+    THEMES: 'THEMES',
+};
+
+export const softwarePaths = {
     primaryPaths: [
-        {
-            icon: toDoIcon,
-            label: "Todo List"
-        },
-        {
-            icon: kanBanBoardIcon,
-            label: "Kanban Board"
-        },
-        {
-            icon: taskCalanderIcon,
-            label: "Task Calander"
-        },
-        {
-            icon: contactTeamIcon,
-            label: "Meet Up"
-        }
-        
+        { key: SECTIONS.TODO, label: 'Todo List', icon: toDoIcon },
+        { key: SECTIONS.KANBAN, label: 'Kanban Board', icon: kanBanBoardIcon },
+        { key: SECTIONS.CALENDAR, label: 'Task Calendar', icon: taskCalanderIcon },
+        { key: SECTIONS.MEETUP, label: 'Meet Up', icon: contactTeamIcon },
     ],
-
     secondaryPath: [
-        {
-            icon: settingsIcons,
-            label: "Settings"
-        },
-        {
-            icon: helpCenterIcon,
-            label: "Help Center"
-        }
-    ]
-}
-
-
-
-
-export { themes, softwarePaths }
+        { key: SECTIONS.SETTINGS, label: 'Settings', icon: settingsIcons },
+        { key: SECTIONS.HELP, label: 'Help Center', icon: helpCenterIcon },
+    ],
+};

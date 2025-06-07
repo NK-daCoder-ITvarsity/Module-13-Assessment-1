@@ -10,12 +10,11 @@ import {
   addMonths,
   subMonths,
   isSameMonth,
-  isAfter
 } from "date-fns";
 
 const LOCAL_STORAGE_KEY = "task-calendar-data";
 
-const TaskCalendar = () => {
+const TasksCalender = () => {
   const [tasks, setTasks] = useState({});
   const [selectedDay, setSelectedDay] = useState(null);
   const [newTask, setNewTask] = useState("");
@@ -175,7 +174,7 @@ const TaskCalendar = () => {
                     onClick={() =>
                       handleStatusToggle(selectedDay, task.id)
                     }
-                    className="px-2 py-1 text-xs bg-green-500 text-white rounded"
+                    className="px-2 py-1 text-xs bg-green-200 text-green-500 rounded-full hover:bg-green-600 hover:text-white shadow-md"
                   >
                     {task.status === "completed"
                       ? "Mark Pending"
@@ -185,7 +184,7 @@ const TaskCalendar = () => {
                     onClick={() =>
                       handleDelete(selectedDay, task.id)
                     }
-                    className="px-2 py-1 text-xs bg-red-500 text-white rounded"
+                    className="px-2 py-1 text-xs bg-red-200 text-red-500 rounded-full hover:bg-red-600 hover:text-white shadow-md"
                   >
                     Delete
                   </button>
@@ -203,7 +202,7 @@ const TaskCalendar = () => {
             />
             <button
               onClick={handleAddTask}
-              className="px-4 py-1 bg-blue-600 text-white rounded"
+              className="px-3 text-sm  bg-gradient-to-b from-sky-500 to-sky-700 text-white rounded-full shadow-md"
             >
               Add
             </button>
@@ -214,4 +213,4 @@ const TaskCalendar = () => {
   );
 };
 
-export default TaskCalendar;
+export { TasksCalender }

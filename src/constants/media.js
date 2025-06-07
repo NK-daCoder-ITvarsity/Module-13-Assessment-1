@@ -12,12 +12,15 @@ import settingsIcons from "../assets/icons/settings.png";
 import kanBanBoardIcon from "../assets/icons/square-kanban (1).png";
 import deleteIcons from "../assets/icons/trash.png";
 import toDoIcon from "../assets/icons/to-do.png";
-import contactTeamIcon from "../assets/icons/people-group.png"
+import contactTeamIcon from "../assets/icons/people-group.png";
+import themeIcon from "../assets/icons/palette.png";
+import pawnIcon from "../assets/icons/chess-pawn-alt.png"
 
 export { 
     deleteIcon, editIcon, orangeBackground,
     greenBackground, pinkBackground, blueBackground,
     taskCalanderIcon, helpCenterIcon, fileEditIcon,
     AddIcons, settingsIcons, kanBanBoardIcon, 
-    deleteIcons, toDoIcon, contactTeamIcon
+    deleteIcons, toDoIcon, contactTeamIcon,
+    themeIcon, pawnIcon
 }

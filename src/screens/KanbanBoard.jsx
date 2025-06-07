@@ -10,7 +10,7 @@ const initialData = {
 
 const LOCAL_STORAGE_KEY = "kanban-board-data";
 
-const KanbanBoard = () => {
+const KanbanBoard = ({theme}) => {
   const [columns, setColumns] = useState(() => {
     const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
     return saved ? JSON.parse(saved) : initialData;
@@ -81,7 +81,7 @@ const KanbanBoard = () => {
   };
 
   return (
-    <div className="flex gap-4 overflow-x-auto pb-4">
+    <div className="flex gap-4 overflow-auto pb-4 ">
       {Object.entries(columns).map(([columnId, column]) => (
         <Column
           key={columnId}
@@ -91,6 +91,7 @@ const KanbanBoard = () => {
           onUpdate={handleUpdate}
           onDragStart={handleDragStart}
           onDrop={handleDrop}
+          theme={theme}
         />
       ))}
     </div>

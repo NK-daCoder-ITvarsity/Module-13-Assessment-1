@@ -2,7 +2,15 @@ import React, { useEffect, useState } from 'react'
 import { AddIcons } from '../constants/media'
 import { TodoCard } from '../components/TodoListCard';
 
-const TaskForm = ({ onSave, currentTask, setCurrentTask, setCurrentFormState }) => {
+const themeVariables = {
+  orange: "bg-gradient-to-b from-orange-500 to-red-500",
+  blue: "bg-gradient-to-b from-blue-500 to-sky-800",
+  pink: "bg-gradient-to-b from-pink-500 to-pink-800",
+  green: "bg-gradient-to-b from-green-500 to-green-800",
+  black: "bg-gradient-to-b from-stone-500 to-stone-800"
+};
+
+const TaskForm = ({ onSave, currentTask, setCurrentTask, setCurrentFormState, theme }) => {
   const [task, setTask] = useState({ name: '', description: '' });
 
   useEffect(() => {
@@ -31,7 +39,7 @@ const TaskForm = ({ onSave, currentTask, setCurrentTask, setCurrentFormState }) 
           </h2>
           <button
             type="button"
-            className="text-sm font-medium text-white px-4 py-2 rounded-xl bg-gradient-to-b from-sky-500 to-sky-700 hover:bg-sky-900 transition duration-200"
+            className={`text-sm font-medium text-white px-4 py-2 rounded-xl transition duration-200 ${theme === "black" ? themeVariables.black : theme === "green" ? themeVariables.green : theme === "blue" ? themeVariables.blue : theme === "pink" ? themeVariables.pink : theme === "orange" ? themeVariables.orange : ""}`}
           >
             + Add Task Block
           </button>
@@ -70,14 +78,14 @@ const TaskForm = ({ onSave, currentTask, setCurrentTask, setCurrentFormState }) 
               setTask({ name: '', description: '' });
               setCurrentFormState(false);
             }}
-            className="text-sm font-medium text-gray-500 hover:text-gray-800 px-4 py-2 transition duration-200"
+            className="text-sm font-medium text-gray-500 hover:text-gray-800 px-4 py-2"
           >
             Cancel
           </button>
 
           <button
             type="submit"
-            className="text-sm font-semibold text-white px-6 py-3 rounded-xl bg-gradient-to-b from-sky-500 to-sky-700 hover:bg-sky-800 transition duration-200"
+            className={`text-sm font-semibold text-white px-6 py-3 rounded-xl ${theme === "black" ? themeVariables.black : theme === "green" ? themeVariables.green : theme === "blue" ? themeVariables.blue : theme === "pink" ? themeVariables.pink : theme === "orange" ? themeVariables.orange : ""}`}
           >
             {currentTask ? 'Update' : 'Submit'}
           </button>
@@ -87,8 +95,7 @@ const TaskForm = ({ onSave, currentTask, setCurrentTask, setCurrentFormState }) 
   );
 };
 
-
-const TodoList = () => {
+const TodoList = ({ theme }) => {
   const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("todo-tasks")) || []);
   const [showForm, setShowForm] = useState(false);
   const [currentTask, setCurrentTask] = useState(null);
@@ -130,7 +137,7 @@ const TodoList = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4 overflow-y-auto">
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold text-gray-800">Your Tasks</h1>
         <button
@@ -138,7 +145,7 @@ const TodoList = () => {
             setCurrentTask(null);
             setShowForm(true);
           }}
-          className="text-sm font-medium text-white px-4 py-2 rounded-xl bg-gradient-to-b from-sky-500 to-sky-700 hover:bg-sky-800 transition duration-200"
+          className={`text-sm font-medium text-white px-4 py-2 rounded-xl ${theme === "black" ? themeVariables.black : theme === "green" ? themeVariables.green : theme === "blue" ? themeVariables.blue : theme === "pink" ? themeVariables.pink : theme === "orange" ? themeVariables.orange : ""}`}
         >
           + New Task
         </button>
@@ -150,7 +157,7 @@ const TodoList = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-5">
           {
             tasks.map(task => (
-              <TodoCard key={task.id} task={task} onDelete={handleDelete} onEdit={handleEdit} />
+              <TodoCard theme={theme} key={task.id} task={task} onDelete={handleDelete} onEdit={handleEdit} />
             ))
           }
         </div>
@@ -161,7 +168,10 @@ const TodoList = () => {
           onSave={handleSave} 
           currentTask={currentTask} 
           setCurrentTask={setCurrentTask} 
-          setCurrentFormState={setShowForm} />
+          setCurrentFormState={setShowForm} 
+          theme={theme}  
+        />
+         
       )}
     </div>
   );
