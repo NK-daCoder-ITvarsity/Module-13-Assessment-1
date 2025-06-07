@@ -19,7 +19,7 @@
 </ul>
 
 <h2>Installation</h2>
-<p>Coming soon</p>
+<p>No installation Required test application using the link: <a href="https://supertaskmate.netlify.app/">Super Task Mate</a></p>
 
 <h2>Liscense</h2>
 <p>Comeing Soon</p>
