@@ -1,5 +1,5 @@
 {
-  "homepage": "https://NK-daCoder-ITvarsity.github.io/Module-13-Assessment-1",
+  "homepage": "https://NK-daCoder-ITvarsity.github.io/Module-13-Assessment-1/",
   "name": "module-13-assessment-1",
   "private": true,
   "version": "0.0.0",
@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "date-fns": "^4.1.0",
