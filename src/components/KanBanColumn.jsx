@@ -1,6 +1,6 @@
-
 import { useState } from "react";
-import KanBanCard from "./kanBanCard";
+import { KanBanCard } from './KanBanCard'
+
 
 const themeVariables = {
   orange: "bg-gradient-to-b from-orange-500 to-red-500",

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { dashboardMosiacThemes } from "../constants/const"; // Make sure this import path is correct
+import { dashboardMosiacThemes } from "../constants/const.js";
 
 const KanBanCard = ({ card, columnId, onDelete, onUpdate, onDragStart, theme = "blue", mosianicTheme = "" }) => {
   const [editing, setEditing] = useState(false);
@@ -92,4 +92,4 @@ const KanBanCard = ({ card, columnId, onDelete, onUpdate, onDragStart, theme = "
   );
 };
 
-export default KanBanCard;
+export { KanBanCard }
