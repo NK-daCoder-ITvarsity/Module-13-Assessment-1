@@ -1,8 +1,25 @@
-import { contactTeamIcon, helpCenterIcon, kanBanBoardIcon, settingsIcons, taskCalanderIcon, toDoIcon } from "./media.js";
+import { blueBackground, contactTeamIcon, greenBackground, helpCenterIcon, kanBanBoardIcon, orangeBackground, pinkBackground, settingsIcons, taskCalanderIcon, toDoIcon } from "./media.js";
 
 export const themes = ["blue", "orange", "green", "pink", "black"];
 export const dashboardThemes = ["white", "black"];
-export const dashboardMosiacThemes = []
+export const dashboardMosiacThemes = [
+    {
+        label: "blue",
+        image: blueBackground
+    },
+    {
+        label: "orange",
+        image: orangeBackground
+    },
+    {
+        label: "pink",
+        image: pinkBackground
+    },
+    {
+        label: "green",
+        image: greenBackground
+    }
+]
 
 export const SECTIONS = {
     TODO: 'TODO',

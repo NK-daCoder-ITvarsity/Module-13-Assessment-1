@@ -7,6 +7,7 @@ import { TasksCalender } from './screens/TaskCalander';
 import MeetUp from './screens/MeetUp';
 import { SettingsButtons, ThemeSettings } from './screens/Settings';
 import HelpCenter from './screens/HelpCenter';
+import { dashboardMosiacThemes } from './constants/const';
 
 // Constants to avoid typo-prone strings
 const SECTIONS = {
@@ -16,6 +17,7 @@ const SECTIONS = {
   MEETUP: 'Meet Up',
   SETTINGS: 'Settings',
   HELP: 'Help Center',
+  THEMESETTINGS: 'Themes Updates'
 };
 
 const SUB_SECTIONS = {
@@ -26,6 +28,8 @@ const App = () => {
   const [section, setSection] = useState({ main: SECTIONS.TODO, sub: null });
   const [theme, setTheme] = useState("blue");
   const [dashTheme, setDashTheme] = useState("white");
+  const [mosianicTheme, setMosianicTheme] = useState("");
+  const matchedTheme = dashboardMosiacThemes.find(theme => theme.label === mosianicTheme);
 
   const handleSectionChange = (main) => {
     setSection({ main, sub: null }); // Reset sub-section on main change
@@ -38,17 +42,22 @@ const App = () => {
   const renderContent = () => {
     const { main, sub } = section;
 
-    if (sub === SUB_SECTIONS.THEMES)  {
-      return <ThemeSettings 
-        setTheme={setTheme}
-      />
-    };
+    if (sub === SUB_SECTIONS.THEMES) {
+      return (
+        <ThemeSettings 
+          setTheme={setTheme}
+          setDashMosianicTheme={setMosianicTheme}
+          mosianicTheme={mosianicTheme}
+        />
+      );
+    }
+    
 
     switch (main) {
       case SECTIONS.TODO:
-        return <TodoList theme={theme}/>;
+        return <TodoList theme={theme} mosianicTheme={mosianicTheme}/>;
       case SECTIONS.KANBAN:
-        return <KanbanBoard theme={theme}/>;
+        return <KanbanBoard theme={theme} mosianicTheme={mosianicTheme}/>;
       case SECTIONS.CALENDAR:
         return <TasksCalender/>
       case SECTIONS.MEETUP:
@@ -73,6 +82,18 @@ const App = () => {
         <Header nameOfCurrentState={section.sub || section.main} />
         {renderContent()}
       </section>
+
+      {
+
+        mosianicTheme !== "" && dashboardMosiacThemes.find(theme => theme.label === mosianicTheme) && (
+          <img 
+            src={matchedTheme.image} 
+            alt="" 
+            className='-z-10 fixed top-0 left-0 size-full'
+          />
+        )
+      }
+
     </div>
   );
 };

@@ -10,7 +10,7 @@ const initialData = {
 
 const LOCAL_STORAGE_KEY = "kanban-board-data";
 
-const KanbanBoard = ({theme}) => {
+const KanbanBoard = ({theme, mosianicTheme}) => {
   const [columns, setColumns] = useState(() => {
     const saved = localStorage.getItem(LOCAL_STORAGE_KEY);
     return saved ? JSON.parse(saved) : initialData;
@@ -92,6 +92,7 @@ const KanbanBoard = ({theme}) => {
           onDragStart={handleDragStart}
           onDrop={handleDrop}
           theme={theme}
+          mosianicTheme={mosianicTheme}
         />
       ))}
     </div>

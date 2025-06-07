@@ -10,7 +10,7 @@ const themeVariables = {
   black: "bg-gradient-to-b from-stone-500 to-stone-800"
 };
 
-const Column = ({ column, onAdd, onDelete, onUpdate, onDragStart, onDrop, theme }) => {
+const Column = ({ column, onAdd, onDelete, onUpdate, onDragStart, onDrop, theme, mosianicTheme="" }) => {
   const [input, setInput] = useState("");
 
   const handleDrop = (e) => {
@@ -20,7 +20,7 @@ const Column = ({ column, onAdd, onDelete, onUpdate, onDragStart, onDrop, theme 
 
   return (
     <div
-      className="bg-white p-4 rounded shadow w-80"
+      className="p-4 rounded-md shadow-md w-80 backdrop-blur-2xl filter"
       onDragOver={(e) => e.preventDefault()}
       onDrop={handleDrop}
     >
@@ -36,6 +36,7 @@ const Column = ({ column, onAdd, onDelete, onUpdate, onDragStart, onDrop, theme 
             onUpdate={onUpdate}
             onDragStart={onDragStart}
             theme={theme}
+            mosianicTheme={mosianicTheme}
           />
         ))}
       </div>

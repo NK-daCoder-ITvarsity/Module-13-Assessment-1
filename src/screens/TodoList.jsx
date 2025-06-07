@@ -10,7 +10,7 @@ const themeVariables = {
   black: "bg-gradient-to-b from-stone-500 to-stone-800"
 };
 
-const TaskForm = ({ onSave, currentTask, setCurrentTask, setCurrentFormState, theme }) => {
+const TaskForm = ({ onSave, currentTask, setCurrentTask, setCurrentFormState, theme, mosianicTheme }) => {
   const [task, setTask] = useState({ name: '', description: '' });
 
   useEffect(() => {
@@ -95,7 +95,7 @@ const TaskForm = ({ onSave, currentTask, setCurrentTask, setCurrentFormState, th
   );
 };
 
-const TodoList = ({ theme }) => {
+const TodoList = ({ theme, mosianicTheme }) => {
   const [tasks, setTasks] = useState(JSON.parse(localStorage.getItem("todo-tasks")) || []);
   const [showForm, setShowForm] = useState(false);
   const [currentTask, setCurrentTask] = useState(null);
@@ -157,7 +157,7 @@ const TodoList = ({ theme }) => {
         <div className="grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-5">
           {
             tasks.map(task => (
-              <TodoCard theme={theme} key={task.id} task={task} onDelete={handleDelete} onEdit={handleEdit} />
+              <TodoCard  mosianicTheme={mosianicTheme} theme={theme} key={task.id} task={task} onDelete={handleDelete} onEdit={handleEdit} />
             ))
           }
         </div>
