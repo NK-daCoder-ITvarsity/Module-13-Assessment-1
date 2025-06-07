@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import Column from "../components/KanBanColumn";
+import Column from "../components/KanbanColumn";
 
 const initialData = {
   todo: { id: "todo", title: "To Do", cards: [] },
