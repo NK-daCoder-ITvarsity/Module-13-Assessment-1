@@ -15,7 +15,7 @@ const Navigation = ({ updatedSection, setUpdatedSection, theme }) => {
       gradient: "bg-gradient-to-b from-orange-500 to-red-500",
     },
     pink: {
-      text: 'text-pink-800',
+      text: 'text-pink-300',
       border: 'border-r border-r-pink-500',
       gradient: 'bg-gradient-to-b from-pink-500 to-rose-500',
     },

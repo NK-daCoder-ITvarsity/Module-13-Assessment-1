@@ -87,7 +87,7 @@ const TasksCalender = () => {
   const daysInMonth = getDaysInMonth();
 
   return (
-    <div className="p-6 max-w-6xl mx-auto font-sans bg-white rounded-3xl shadow-xl">
+    <div className="w-[57rem] mt-5 p-6 mx-auto font-sans backdrop-blur-2xl border-t border-stone-200 filter rounded-3xl shadow-xl">
       {/* Month Navigation */}
       <div className="flex justify-between items-center mb-6">
         <button

@@ -7,8 +7,8 @@ const SettingsButtons = ({setThemeSettingsSection}) => {
     <React.Fragment>
       <ul className='mt-5 h-full p-4'>
         <li>
-          <button type="button" onClick={() => setThemeSettingsSection("Themes Updates")}>
-            <div className="flex items-center gap-2 rounded-3xl p-8 shadow-md hover:scale-105 transition-transform transform">
+          <button type="button" onClick={() => setThemeSettingsSection("Themes Updates")} className="drop-shadow-xl backdrop-blur-2xl rounded-2xl shadow-md hover:scale-105 transition-transform transform border-t border-stone-300">
+            <div className="flex items-center gap-2 p-8 ">
               <img src={themeIcon} alt="" className="size-11"/>
               <div className="flex flex-col gap-1 flex-start">
                 <p className="text-stone-800 font-medium text-left">Theme Customize</p>
@@ -37,7 +37,7 @@ const ThemeSettings = ({ setTheme, setDashMosianicTheme, mosianicTheme = false }
 
   return (
     <div className="container mx-auto p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-      <div className=" flex flex-col gap-3 border rounded-3xl p-4 shadow-sm backdrop-blur-lg filter">
+      <div className=" flex flex-col gap-3 border-t border-stone-200 shadow-md rounded-3xl p-4 backdrop-blur-lg filter">
         <h2 className="font-semibold text-lg">Button Themes</h2>
         <ul className="flex flex-wrap gap-4">
           {themes.map((theme) => (
@@ -56,7 +56,7 @@ const ThemeSettings = ({ setTheme, setDashMosianicTheme, mosianicTheme = false }
           ))}
         </ul>
       </div>
-      <div className="flex flex-col gap-3 border rounded-3xl p-4 shadow-sm backdrop-blur-xl filter">
+      <div className="flex flex-col gap-3 border-t rounded-3xl p-4 shadow-md backdrop-blur-xl filter">
         <h2 className="font-semibold text-lg">Dashborad Themes</h2>
         <ul className="flex gap-4">
           {

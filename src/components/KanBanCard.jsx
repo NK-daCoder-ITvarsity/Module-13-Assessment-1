@@ -21,7 +21,7 @@ const KanBanCard = ({ card, columnId, onDelete, onUpdate, onDragStart, theme = "
     },
     pink: {
       border: "border-l-2 border-pink-500",
-      icon: "text-pink-600",
+      icon: "text-pink-500",
     },
     green: {
       border: "border-l-2 border-green-500",
@@ -52,11 +52,11 @@ const KanBanCard = ({ card, columnId, onDelete, onUpdate, onDragStart, theme = "
               backgroundPosition: "center",
               borderLeft: "4px solid rgba(255, 255, 255, 0.3)",
               backdropFilter: "blur(6px)",
+              backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.3))`,
             }
           : {}
       }
     >
-      <div className="absolute inset-0 bg-black/30 z-0 rounded pointer-events-none" />
       <div className="flex justify-between items-center w-full z-10">
         {editing ? (
           <div className="flex gap-2 w-full">
