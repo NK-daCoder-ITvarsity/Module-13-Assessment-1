@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { dashboardMosiacThemes } from "../constants/const.js";
 
-const KanBanCard = ({ card, columnId, onDelete, onUpdate, onDragStart, theme = "blue", mosianicTheme = "" }) => {
+const KanbanCard = ({ card, columnId, onDelete, onUpdate, onDragStart, theme = "blue", mosianicTheme = "" }) => {
   const [editing, setEditing] = useState(false);
   const [text, setText] = useState(card.text);
 
@@ -92,4 +92,4 @@ const KanBanCard = ({ card, columnId, onDelete, onUpdate, onDragStart, theme = "
   );
 };
 
-export { KanBanCard }
+export { KanbanCard }

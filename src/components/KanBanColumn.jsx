@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { KanBanCard } from "./kanBanCard";
-
+import { KanbanCard } from "./KanBanCard";
 
 
 const themeVariables = {
@@ -29,7 +28,7 @@ const Column = ({ column, onAdd, onDelete, onUpdate, onDragStart, onDrop, theme,
 
       <div className="space-y-2 min-h-[100px]">
         {column.cards.map((card) => (
-          <KanBanCard
+          <KanbanCard
             key={card.id}
             card={card}
             columnId={column.id}
@@ -63,4 +62,4 @@ const Column = ({ column, onAdd, onDelete, onUpdate, onDragStart, onDrop, theme,
   );
 };
 
-export default Column;
+export { Column };
